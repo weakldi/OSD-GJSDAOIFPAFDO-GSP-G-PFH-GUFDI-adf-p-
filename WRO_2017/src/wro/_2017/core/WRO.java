@@ -12,6 +12,8 @@ import lejos.robotics.mapping.EV3NavigationModel;
 import lejos.robotics.mapping.LineMap;
 import lejos.robotics.mapping.SVGMapLoader;
 import lejos.robotics.navigation.Navigator;
+import lejos.robotics.navigation.Waypoint;
+import wro._2017.navigation.Driver;
 
 public class WRO {
 	public static void main(String[] args) {
@@ -36,10 +38,12 @@ public class WRO {
 //		try {
 //			SVGMapLoader loader = new SVGMapLoader(new FileInputStream("map2.svg"));
 //			LineMap MAP = loader.readLineMap();
-			Navigator nav = new Navigator(robot.getMovementControler());
-			nav.addWaypoint(0, 10, 0);
-			nav.addWaypoint(40, 12);
-			nav.followPath();
+		Driver driver = new Driver(robot);
+		driver.getPath().add(new Waypoint(0, 30));
+		driver.getPath().add(new Waypoint(30,30));
+		driver.getPath().add(new Waypoint(-30,30));
+		driver.getPath().add(new Waypoint(10,10));
+		driver.follow();
 			
 //		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

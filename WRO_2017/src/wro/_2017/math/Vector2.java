@@ -54,7 +54,13 @@ public class Vector2{
 	
 	public float angle(Vector2 test){
 		float alpha = dot(test)/(length()*test.length());
-		return (float) Math.acos(alpha);
+		return ((float) Math.toDegrees(Math.acos(alpha)))*singAngle(test);
+	}
+	
+	public int singAngle(Vector2 test){
+		Vector3 v3 = new Vector3(x, y, 0);
+		Vector3 v3_t = new Vector3(test.x, test.y, 0);
+		return v3.cross(v3_t).y>0?-1:1;
 	}
 	
 	public void add(Vector2 b){
