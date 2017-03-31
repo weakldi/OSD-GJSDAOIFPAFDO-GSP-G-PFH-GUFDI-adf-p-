@@ -1,0 +1,70 @@
+package wro._2017.math;
+
+
+public class Vector2{
+	public float x,y;
+	
+	
+	
+	public Vector2() {
+		super();
+	}
+
+	public Vector2(float x, float y) {
+		super();
+		this.x = x;
+		this.y = y;
+	}
+
+	public float getX() {
+		return x;
+	}
+
+	public void setX(float x) {
+		this.x = x;
+	}
+
+	public float getY() {
+		return y;
+	}
+
+	public void setY(float y) {
+		this.y = y;
+	}
+
+
+	public void normailze(){
+		float len = length();
+		x /= len;
+		y /= len;
+	}
+	
+	public void scale(float len){
+		x *= len;
+		y *= len;
+	}
+	
+	public float length() {
+		return (float) Math.sqrt((x*x+y*y));
+	}
+	
+	public float dot(Vector2 b){
+		return x*b.x+y*b.y;
+	}
+	
+	public float angle(Vector2 test){
+		float alpha = dot(test)/(length()*test.length());
+		return (float) Math.acos(alpha);
+	}
+	
+	public void add(Vector2 b){
+		x+=b.x;
+		y+=b.y;
+	}
+	
+	public void sub(Vector2 b){
+		x-=b.x;
+		y-=b.y;
+	}
+	
+}
