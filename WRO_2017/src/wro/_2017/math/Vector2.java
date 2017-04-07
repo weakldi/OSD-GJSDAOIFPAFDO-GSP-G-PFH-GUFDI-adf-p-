@@ -49,7 +49,7 @@ public class Vector2{
 	}
 	
 	public float dot(Vector2 b){
-		return x*b.x+y*b.y;
+		return x * b.x + y * b.y;
 	}
 	
 	public float angle(Vector2 test){

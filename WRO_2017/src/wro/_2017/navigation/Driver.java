@@ -53,15 +53,18 @@ public class Driver {
 
 	public void follow(){
 		for (Waypoint waypoint : path) {
-			Vector2 dir = new Vector2(x-waypoint.x,y-waypoint.y);
+			Vector2 dir = new Vector2(waypoint.x-x,waypoint.y-y);
 			float rot = dir.angle(heading);
 			heading.x = dir.x;
 			heading.y = dir.y;
 			heading.normailze();
+			System.out.println("R:\t" + rot);
+			System.out.println(dir);
 			robot.getMovementControler().rotate(rot);
 			while(robot.getMovementControler().isMoving()){
 				
 			}
+			rotz+=rot;
 			robot.getMovementControler().travel(dir.length());
 			WRO.watiTillStop(robot);
 			x+=dir.x;

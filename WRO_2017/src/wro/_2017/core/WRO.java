@@ -18,7 +18,6 @@ import wro._2017.navigation.Driver;
 public class WRO {
 	public static void main(String[] args) {
 		EV3 ev3 = LocalEV3.get();
-		System.out.println(ev3);
 		Robot robot = new Robot(ev3);
 		robot.init();
 //		while(robot.getMovementControler().isMoving()){}
