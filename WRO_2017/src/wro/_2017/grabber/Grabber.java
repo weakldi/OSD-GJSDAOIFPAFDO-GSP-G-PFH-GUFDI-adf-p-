@@ -6,7 +6,7 @@ import lejos.robotics.LinearActuator;
 public class Grabber {
 	private EV3MediumRegulatedMotor vert, grab;
 	private float linearPos = 0;
-	private float MAX_ROT = 6.5f;
+	private float MAX_ROT = 5.5f;
 	public Grabber(EV3MediumRegulatedMotor vert, EV3MediumRegulatedMotor grab) {
 		super();
 		this.vert = vert;

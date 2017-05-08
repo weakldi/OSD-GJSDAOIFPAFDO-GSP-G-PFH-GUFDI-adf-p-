@@ -14,7 +14,7 @@ public class Driver {
 	public ArrayList<Waypoint> path;
 	
 	private float x,y,rotz;
-	private Vector2 heading = new Vector2(0, 1);
+	private Vector2 heading = new Vector2(-1, 0);
 	public Driver(Robot robot) {
 		super();
 		this.robot = robot;
@@ -60,7 +60,7 @@ public class Driver {
 			
 //			dir.x = x-waypoint.x;
 //			dir.y = y-waypoint.y;
-			float rot = dir.angle(heading);
+			float rot = dir.angle(heading)+3;
 			heading.x = dir.x;
 			heading.y = dir.y;
 			heading.normailze();

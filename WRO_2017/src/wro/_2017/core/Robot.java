@@ -4,6 +4,8 @@ import lejos.hardware.ev3.EV3;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.motor.EV3MediumRegulatedMotor;
 import lejos.hardware.port.Port;
+import lejos.robotics.RegulatedMotor;
+import lejos.robotics.RegulatedMotorListener;
 import lejos.robotics.chassis.Chassis;
 import lejos.robotics.chassis.Wheel;
 import lejos.robotics.chassis.WheeledChassis;
@@ -57,14 +59,17 @@ public class Robot {
 	    motor_B = new EV3LargeRegulatedMotor(OUT_B);
 	    motor_C = new EV3LargeRegulatedMotor(OUT_C);
 	    motor_D = new EV3MediumRegulatedMotor(OUT_D);
+	    
+	    motor_B.synchronizeWith(new EV3LargeRegulatedMotor[]{motor_C});
+	    motor_B.startSynchronization();
 	    //Sensorsetup
 	    
 	    //Movementsetup
-	    Wheel wheel1 = WheeledChassis.modelWheel(motor_B, 4.2).offset(-7.1);
+	    Wheel wheel1 = WheeledChassis.modelWheel(motor_B, 4.13).offset(-7.1);
 		Wheel wheel2 = WheeledChassis.modelWheel(motor_C, 4.2).offset(7.1);
 		chassis = new WheeledChassis(new Wheel[] { wheel1, wheel2 }, WheeledChassis.TYPE_DIFFERENTIAL);
 		movementControler = new MovePilot(chassis);
-	    
+	   
 	    initialized = true;
 	}
 
